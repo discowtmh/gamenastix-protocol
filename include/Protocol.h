@@ -18,6 +18,7 @@ enum class MessageType
     RequestModel,
     ResponseModel,
     Frame,
+    BumpFrameRate,
     Unknown
 };
 
@@ -33,6 +34,8 @@ struct Matcher
         {
             switch (message[0])
             {
+                case 'B':
+                    return MessageType::BumpFrameRate;
                 case 'N':
                     return MessageType::CalibrationNPose;
                 case 'S':
