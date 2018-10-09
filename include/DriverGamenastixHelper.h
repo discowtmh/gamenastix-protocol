@@ -26,6 +26,14 @@ public:
     {
     }
 
+    static Message decorateMessage(char c, Message rawMessage)
+    {
+        Message message(rawMessage.size()+1);
+        message[0] = static_cast<uint8_t>(c);
+        std::copy(rawMessage.begin(), rawMessage.end(), message.begin()+1);
+        return message;
+    }
+
     void handleMessage(Message message)
     {
         auto messageType = Matcher::match(message);
@@ -33,7 +41,8 @@ public:
         {
             case MessageType::RequestModel:
             {
-                messageSender(model.getSerializedModel());
+                auto serializedModel = model.getSerializedModel();
+                messageSender(decorateMessage('M', serializedModel));
                 break;
             }
             case MessageType::CalibrationNPose:
