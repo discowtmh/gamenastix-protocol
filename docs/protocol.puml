@@ -1,0 +1,25 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Communication WP3 Serial Protocol
+end legend
+
+participant "Supervisor" as SUPERVISOR
+participant "Gamenastix Driver" as DRIVER
+
+SUPERVISOR -> DRIVER: frame (F)
+SUPERVISOR -> DRIVER: frame (F)
+...
+DRIVER -> SUPERVISOR: reset (R)
+SUPERVISOR -> DRIVER: model (M)
+...
+SUPERVISOR -> DRIVER: frame (F)
+SUPERVISOR -> DRIVER: frame (F)
+...
+DRIVER -> SUPERVISOR: npose (N)
+DRIVER -> SUPERVISOR: spose (S)
+...
+SUPERVISOR -> DRIVER: frame (F)
+SUPERVISOR -> DRIVER: frame (F)
+
+@enduml
