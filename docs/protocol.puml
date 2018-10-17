@@ -7,19 +7,21 @@ end legend
 participant "Supervisor" as SUPERVISOR
 participant "Gamenastix Driver" as DRIVER
 
-SUPERVISOR -> DRIVER: frame (F)
-SUPERVISOR -> DRIVER: frame (F)
+SUPERVISOR -> DRIVER: Frame (F)
+SUPERVISOR -> DRIVER: Frame (F)
 ...
-DRIVER -> SUPERVISOR: reset (R)
-SUPERVISOR -> DRIVER: model (M)
+DRIVER -> SUPERVISOR: RequestModel (R)
+SUPERVISOR -> DRIVER: ResponseModel (M)
 ...
-SUPERVISOR -> DRIVER: frame (F)
-SUPERVISOR -> DRIVER: frame (F)
+DRIVER -> SUPERVISOR: BumpFrameRate (B)
 ...
-DRIVER -> SUPERVISOR: npose (N)
-DRIVER -> SUPERVISOR: spose (S)
+SUPERVISOR -> DRIVER: Frame (F)
+SUPERVISOR -> DRIVER: Frame (F)
 ...
-SUPERVISOR -> DRIVER: frame (F)
-SUPERVISOR -> DRIVER: frame (F)
+DRIVER -> SUPERVISOR: CalibrationNPose (N)
+DRIVER -> SUPERVISOR: CalibrationSPose (S)
+...
+SUPERVISOR -> DRIVER: Frame (F)
+SUPERVISOR -> DRIVER: Frame (F)
 
 @enduml
