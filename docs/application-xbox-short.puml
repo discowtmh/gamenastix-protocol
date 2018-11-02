@@ -1,0 +1,14 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Communication WP3 Open Source XBox Short
+end legend
+
+[Treadmill] as TREADMILL
+() "USB HID XInput" as HID
+[Game] as GAME
+
+TREADMILL --> HID
+HID --> GAME
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Communication WP3 Open Source Preview
+end legend
+
+cloud "Treadmill Peripherals" as TREADMILL {
+[LeftLegUpper] as LLU
+[LeftLegLower] as LLL
+[RightLegUpper] as RLU
+[RightLegLower] as RLL
+[Crane] as CRANE
+[Backpack] as BACKPACK
+[Encoder] as ENCODER
+}
+() "WiFi UDP Treadmill" as WIFI_TREADMILL
+() "Virtual Serial Port" as VIRTUAL_SERIAL
+() "WiFi UDP Preview" as WIFI_PREVIEW
+[Supervisor] as SUPERVISOR
+[PreviewReceiver] as RECEIVER
+[Preview] as PREVIEW
+
+LLU --> WIFI_TREADMILL
+LLL --> WIFI_TREADMILL
+RLU --> WIFI_TREADMILL
+RLL --> WIFI_TREADMILL
+BACKPACK --> WIFI_TREADMILL
+ENCODER --> WIFI_TREADMILL
+CRANE --> WIFI_TREADMILL
+WIFI_TREADMILL --> SUPERVISOR
+SUPERVISOR <--> VIRTUAL_SERIAL
+VIRTUAL_SERIAL <--> RECEIVER
+RECEIVER --> WIFI_PREVIEW
+WIFI_PREVIEW --> PREVIEW
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Biomodel WP3 Open Source - Bio4 Model
+end legend
+
+() "biomodel root" as ROOT
+node Pelvis <<ORIENTATION>> as PELVIS
+node LeftLegOffset <<DISPLACEMENT>> as LLO
+node RightLegOffset <<DISPLACEMENT>> as RLO
+node LeftLegUpper <<ORIENTATION>> as LLU
+node RightLegUpper <<ORIENTATION>> as RLU
+node LeftLegLower <<ORIENTATION>> as LLL
+node RightLegLower <<ORIENTATION>> as RLL
+ROOT --> PELVIS
+PELVIS --> LLO
+PELVIS --> RLO
+LLO --> LLU
+LLU --> LLL
+RLO --> RLU
+RLU --> RLL
+
+skinparam node {
+	backgroundColor<<ORIENTATION>> DarkKhaki
+	backgroundColor<<DISPLACEMENT>> LightGreen
+}
+
+@enduml

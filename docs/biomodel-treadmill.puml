@@ -1,0 +1,32 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Biomodel WP3 Open Source - Treadmill Model
+end legend
+
+() "biomodel root" as ROOT
+node Crane <<ORIENTATION>> as CRANE
+node Distance <<DISPLACEMENT>> as DISTANCE
+node Backpack <<ORIENTATION>> as BACKPACK
+node LeftLegOffset <<DISPLACEMENT>> as LLO
+node RightLegOffset <<DISPLACEMENT>> as RLO
+node LeftLegUpper <<ORIENTATION>> as LLU
+node RightLegUpper <<ORIENTATION>> as RLU
+node LeftLegLower <<ORIENTATION>> as LLL
+node RightLegLower <<ORIENTATION>> as RLL
+ROOT --> CRANE
+CRANE --> DISTANCE
+DISTANCE --> BACKPACK
+BACKPACK --> LLO
+BACKPACK --> RLO
+LLO --> LLU
+LLU --> LLL
+RLO --> RLU
+RLU --> RLL
+
+skinparam node {
+	backgroundColor<<ORIENTATION>> DarkKhaki
+	backgroundColor<<DISPLACEMENT>> LightGreen
+}
+
+@enduml

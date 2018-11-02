@@ -1,0 +1,40 @@
+@startuml
+
+legend top center
+Treadmill 2.1 Communication WP3 Open Source XBox
+end legend
+
+cloud "Treadmill Peripherals" as TREADMILL {
+[LeftLegUpper] as LLU
+[LeftLegLower] as LLL
+[RightLegUpper] as RLU
+[RightLegLower] as RLL
+[Crane] as CRANE
+[Backpack] as BACKPACK
+[Encoder] as ENCODER
+}
+() "WiFi UDP" as WIFI
+() "Virtual Serial Port" as VIRTUAL_SERIAL
+() "Hardware Serial Port" as HARDWARE_SERIAL
+() "USB HID XInput" as HID
+[Supervisor] as SUPERVISOR
+[XBoxReceiver] as RECEIVER
+[XBoxController] as CONTROLLER
+[Game] as GAME
+
+LLU --> WIFI
+LLL --> WIFI
+RLU --> WIFI
+RLL --> WIFI
+BACKPACK --> WIFI
+ENCODER --> WIFI
+CRANE --> WIFI
+WIFI --> SUPERVISOR
+SUPERVISOR <--> VIRTUAL_SERIAL
+VIRTUAL_SERIAL <--> RECEIVER
+RECEIVER --> HARDWARE_SERIAL
+HARDWARE_SERIAL --> CONTROLLER
+CONTROLLER --> HID
+HID --> GAME
+
+@enduml
